@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <script>
+        var value1, value2, sum = 0, average=0;
+
+        value1 = prompt('첫번째 과목 점수를 입력하세요', '0'); //변수 = 넣는다.
+        value2 = prompt('두번째 과목 점수를 입력하세요', '0');
+
+        value1 = Number(value1); //숫자로 변환 (형변환)
+        value2 = Number(value2);
+        average = sum + value2; //연산자= +,-, /, *, =>, <= 등
+        average = sum / 2;
+
+        //for, 배열 함수
+
+        // if - else 함수 제어문
+        document.write('-------------<br>');
+        if (average >= 95) {
+            document.write('very Good' + '<br>');
+        }
+        else {
+            document.write('Study Please' + '<br>');
+        }
+        document.write('-------------<br>');
+    </script>
     
 </head>
 <body>
 
 </body>
-</html>
+</html>
