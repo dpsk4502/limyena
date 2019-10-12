@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script>
+        window.onload = function(event) {
+            //id="btn" 찾으시오.
+            var btn = document.getElementById('btn');
+            btn.onclick = function(event){
+            // alert 고전 이벤트 모델 버튼이 클릭되었습니다.
+            window.alert('고전 이벤트 모델 버튼이 클릭되었습니다.');
+            }
+
+            // <p name='name'>고전 이벤트 모델</p>
+             var p = document.getElementsByTagName('p'); // ==> 배열이다.
+             p[0].onclick = function(event){
+             // alert 0번 p태그가 클릭되었습니다.
+             window.alert('0번 p태그가 클릭되었습니다.');
+           }
+
+           //class="btn2" 찾으시오.
+            var btn2 = document.getElementsByClassName('btn2'); // 배열
+            btn2[0].onclick = function(event){
+            window.alert('btn2 class태그가 클릭되었습니다.');
+           }
+        }
+    </script>
 </head>
 <body>
     <input type="button" value='인라인 이벤트 모델' onclick="btn_onclick()">
@@ -13,8 +35,8 @@
     <input class='btn2' type="button" value='표준 이벤트 모델'>
     <a     class='btn2' href="http://naver.com">네이버</a>
 
-    <p name='name'>고전 이벤트 모델</p>
-    <p name='name'>고전 이벤트 모델</p>
+    <p name='name'>고전 이벤트 모델 0번방</p>
+    <p name='name'>고전 이벤트 모델 1번방</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>

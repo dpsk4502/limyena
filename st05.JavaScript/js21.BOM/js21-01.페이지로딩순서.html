@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+    <script>
+        //이벤트 들은 이미지까지 다운로드가 완료되어야 이벤트가 실행된다.
+        window.onload = function(event) {
+            window.alert('페이지 onload 실행');
+            console.log ('페이지 onload 실행');
+        };
+        
+        // 떠나는 시점을 체크할 수 있음.
+        window.onbeforeunload = function(event) {
+            console.log ('페이지 onbeforeunload 실행')
+        };
+    </script>
 </head>
 <body>
-    
+    <script>console.log('body p 앞에');</script>
     <p> body 안에...</p>
-    
+    <script>console.log('body p 뒤에');</script>
     <a href="http://www.naver.com">naver</a>
 </body>
 </html>

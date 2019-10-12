@@ -3,7 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script>
+        var foo = {
+            name : 'foo',
+            age : 30,
+            array : [1, 2, 3],
+            run : function() {
+                return this.name;
+            }
+        };
+        // Read
+        console.log ( foo.name ); // 마침표 표기법
+        console.log ( foo['name']); // 대괄호 표기법
+
+        // Update
+        // name 을 'bar' 로 변경
+        // age 를 50으로 변경
+        // name과 age를 출력하시오.
+        foo.name = 'bar'; //
+        console.log( foo.name );
+        foo.age = 50;
+        console.log( foo.age);
+
+        // Create
+        // gender 프로퍼티 추가하고 man을 저장
+        // nickname 프로퍼티 추가하고 'ba'를 저장
+        // gender 와 nickname을 출력하시오.
+
+        var foo = {
+            gender : 'man',
+            nickname : 'ba'
+        };
+
+        console.log ( foo.gender );
+        console.log ( foo.nickname );
+
+        //Delete
+        //nickname
+        //gender
+        delete foo.gender;
+        delete foo.nickname;
+        console.log (foo.gender); // ==> undefined
+        console.log (foo.nickname); // ==> undefined
+
+        // 객체의 프로퍼티 열거 : for ~ in을 사용해야 한다.
+        // 객체를 for문에서 사용할때 대괄호 표기법을 사용해야 한다.
+        for( var name in foo ){
+            console.log( name, foo[ name ] );
+        };
+        </script>
 </head>
 <body>
 

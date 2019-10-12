@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>산술 연산</title>
-    
+    <SCript>
+        // 변수 선언!
+        var x;
+        var y;
+
+        // 변수 설정
+        x = prompt('숫자 입력'); //숫자 입력 방기
+        x = Number( x ); //문자를 숫자로 변환
+        y = prompt('숫자 입력');
+        y = Number( y );
+
+        // 함수 산술 연산
+        var Add = function ( x, y ) {
+            return x + y
+        };
+
+        var Sub = function ( x, y ) {
+            return x - y
+        };
+
+        var Mul = function ( x, y ) {
+            return x * y
+        };
+
+        var Div = function ( x, y ) {
+            return x / y
+        };
+
+        // 함수호출
+        var add = Add (x, y);
+        console.log ( add );  //==> 6
+
+        var sub = Sub (x, y);
+        console.log ( sub ); //==> -2
+
+        var mul = Mul (x, y);
+        console.log ( mul ); //==> 8
+
+        var div = Div (x, y);
+        console.log ( div ); //==> 0.5
+    </SCript>
 </head>
 <body>
 
 </body>
-</html>
+</html>
