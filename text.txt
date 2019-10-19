@@ -15,3 +15,6 @@ html 태그가 실행되기 전에는 window.onload를 사용해야한다.
 
 스크립트를 html바깥에 적느냐 head안에 적느냐에 따라 코드 작성이 달라진다.
 => 아래에 쓰면 많은 부분이 단순해짐 ^^
+
+style 속성 -> css ()
+class 속성 -> addClass()

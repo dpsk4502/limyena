@@ -14,6 +14,7 @@
         .white  { background: white; cursor:pointer; }
         .gray   { background: gray;   }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <p class="pclick">
@@ -46,5 +47,26 @@
 </html>
 
 <!-- 임포트 -->
+<script>
+    $('#element_read').on('click', function(event){
+        // 찾고 설정(CRUD)
+        // 1. p class="pclick" 찾고 텍스트 엘리먼트 읽기(R)
+        var result = $('p.pclick').html();
+        //window.alert(result);
+        
+        // 2. div id="result_element" 찾고 텍스트 엘리먼트 쓰기(c))
+        $('#result_element').html( result );
+    });
+    $('#element_create').on('click', function(event){
+        // <img src="images/im1.jpg">
+        $('#result_element').html('<img src="images/im1.jpg">');
+        
+    });
+    $('#element_update').on('click', function(event){
+        
+    });
+    $('#element_delete').on('click', function(event){
+        
+    });
+</script>
 
-

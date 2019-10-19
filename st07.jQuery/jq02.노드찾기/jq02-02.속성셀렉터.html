@@ -5,7 +5,8 @@
 	<style>
 	    div, span { background: #FFF; padding: 10px; margin: 10px; }
         hr { clear:both; }
-    </style>
+	</style>
+	<script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
 	<h2>Attribute Selector</h2>
@@ -29,5 +30,54 @@
 </body>
 </html>
 
-<!-- ����Ʈ -->
-
+<!-- 임포트 -->
+<script>
+	var init = function(){
+		$('*').css('background-color', ''); // 설정초기화
+	}
+
+	$('#has').on('click', function(event){
+		//window.alert('has');
+		init(); //$('*').css('background-color', ''); // 설정초기화
+		$('[target]').css('background','gray');
+	});
+
+	$('#equal').on('click', function(event){
+		//window.alert('equal');
+		init();
+		$('[href = "http://slqer.com"]').css('background','gray'); //속성값은 대괄호 사용.
+	});
+
+	// 밑으로는 사용 빈도수가 낮음.
+
+	$('#notequal').on('click', function(event){
+		//window.alert('notequal');
+		init();
+		$('a[href != "http://slqer.com"]').css('background','gray');
+	});
+
+	$('#startwith').on('click', function(event){
+		//window.alert('startwith');
+		init();
+		$('a[href ^="http://h"]').css('background', 'gray');
+	});
+
+	$('#endwith').on('click', function(event){
+		//window.alert('endwith');
+		init();
+		$('a[href $= "net"]').css('background', 'gray');
+	});
+
+	$('#contains').on('click', function(event){
+		//window.alert('contains');
+		init();
+		$('a[name *= "man" ]').css('background', 'gray');
+	});
+
+	$('#findword').on('click', function(event){
+		//window.alert('findword');
+		init();
+		$('a[name ~= "man"]').css('background', 'gray');
+	});
+</script>
+

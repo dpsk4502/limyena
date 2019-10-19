@@ -6,8 +6,10 @@
     <style>
         /*div   { background: #FFF; padding: 10px; margin: 10px; }*/
         table { border: 1px solid #AAA; width:100% }
-        td    { border: 1px solid #AAA; width: 20px; height: 20px; }
+        td    { border: 1px solid #AAA; width: 20px; height: 20px; 
+        }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h2>Filter Selector</h2>
@@ -63,4 +65,26 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('#checked').on('click', function(event){
+        //window.alert('checked');
+        $('input[type="checkbox"]:checked').css('outline', '1px dotted red');
+        //input 태그에는 outline을 사용하고 그 외에는 전부 border를 사용한다. outline은 모든 브라우저에서는 다 된다.
+    });
+
+    $('#radio').on('click', function(event){
+        //window.alert('radio');
+        $('input[type="radio"]:checked').css('outline', '1px dotted red');
+    });
+
+    $('#selected').on('click', function(event){
+        //window.alert('selected');
+        $('select > option:selected').css('outline', '1px dotted red');
+    });
+
+    $('#hobby').on('click', function(event){
+       //window.alert('hobby');
+       $('[name=hobby]:checked').css('outline', '1px dotted red');
+    });
+</script>
+

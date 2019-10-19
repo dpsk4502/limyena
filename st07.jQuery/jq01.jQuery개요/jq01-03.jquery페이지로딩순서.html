@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>페이지 이벤트 실행 순서</title>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -13,5 +14,14 @@
 </body>
 </html>
 
+<script>
+    // ready 가 이벤트 명(이름)
+    $(document).ready(function(event){
+        window.alert('document.ready'); //호출 순서 2번
+    });
+    $(window).on('load', function(event){
+        window.alert('window.load'); //호출 순서 1번
+    });
+</script>
 <!-- 임포트 -->
-
+

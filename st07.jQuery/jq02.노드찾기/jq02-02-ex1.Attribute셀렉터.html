@@ -8,6 +8,7 @@
         .largetext {   font-size: 30pt   }
         .italictext{   font-style: italic;   }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h2>Multiple Selector</h2>
@@ -19,4 +20,8 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('span, .simpletext1, p').addClass('largetext italictext')
+    //다중 선택은 ,(컴마) 다중 속성부여는 빈공간(space)
+</script>
+

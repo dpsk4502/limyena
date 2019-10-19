@@ -13,6 +13,7 @@
         }
         hr { clear:both; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h2>jQuery Selector</h2>
@@ -36,4 +37,32 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('#all').on('click', function(event){
+        //window.alert('all');
+        //style="border:1px dotted red;"
+        $('*').css('border','1px dotted red'); //css 효과 주는 방법.
+    });
+
+    $('#id').on('click', function(event){
+        //window.alert('id');
+        //<div id="content">이 부분은 ID값이 content 이다.</div>
+        $('#content').css('background', 'yellow');
+    });
+
+    $('#element').on('click', function(event){
+        //window.alert('element');
+        $('div').css('border', '1px solid red');
+    });
+    
+    $('#class').on('click', function(event){
+        //window.alert('class');
+        $('.myClass').css('border', '1px dotted blue');
+    });
+
+    $('#multi').on('click', function(event){
+        //window.alert('multi');
+        $('p, #content').css('border', '2px dashed blue');
+    });
+</script>
+
