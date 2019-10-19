@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>타이머 </title>
-    
 </head>
 
 <body>
@@ -13,4 +12,32 @@
     <div id="result">   </div>
 </p>
 </body>
-</html>
+</html>
+<script>
+    // 타이머 설정하기
+    var start = document.getElementById('start');
+    var stop = document.getElementById('stop');
+    var result = document.getElementById('result');
+
+    //start 설정
+    start.onclick = function(event) {
+        // window.alert('start click');
+        start.disabled = true; //
+        stop.disabled = false;
+
+        // 1초마다 타이머 설정. setInterval() 사용한다.
+        setInterval( function(event){
+        var datetime = new Date();
+
+        result.innerHTML = datetime;
+        }, 1000 ); // 1000ms = 1s 마다
+    };
+
+    //stop 설정
+    stop.onclick = function(event) {
+       // window.alert('stop click');
+       start.disabled = false;
+       stop.disabled = true;
+    };
+
+</script>

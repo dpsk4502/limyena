@@ -3,15 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        window.onload = function(event) {
+            /*var p = document.getElementsByTagName('p');
+            p[0].onclick = function(event){
+                window.alert('0번째 클릭 이벤트'); 
+            };*/
+
+            var p = document.getElementsByName('name')
+            for(var i=0; i<=p.length-1; i=i+1) {
+                p[i].count = i; //프로퍼티는 html의 속성(어트리뷰트)로 바뀌게 된다.
+                p[i].setAttribute("count", i);
+                p[i].onclick = function(event){
+                    // this는  p[i]를 의미한다.
+                window.alert( this.count + '번째 클릭 이벤트' ); 
+                };
+            };
+
+            console.log(i); // => 7
+
+           /* var name = document.getElementsByName('name');
+            name[1].onclick = function(event){
+                window.alert('1번째 고전 이벤트 모델이 클릭되었습니다.');
+            };*/
+        };
+    </script>
     
 </head>
 <body>
-    <p name='name'>고전 이벤트 모델</p>
-    <p name='name'>고전 이벤트 모델</p>
+    <p name='name' no="1">고전 이벤트 모델</p>
+    <p name='name' no="2">고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
     <p name='name'>고전 이벤트 모델</p>
 </body>
-</html>
+</html>

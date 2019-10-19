@@ -1,19 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
-    
 </head>
+
 <body>
-    
-    <input id='prev'  type="button" value="<<" />
-    <input id='next'  type="button" value=">>" />
+
+    <input id='prev' type="button" value="<<" />
+    <input id='next' type="button" value=">>" />
     <input id='start' type="button" value="시작" />
-    <input id='stop'  type="button" value="정지" />
+    <input id='stop' type="button" value="정지" />
 
     <img id='img' src="images/00.png">
 
 </body>
-</html>
+
+</html>
+
+<script>
+    // 변수 선언
+    var timer = null; // setInterval() 로 시작되는 정보를 담는 변수.
+
+    // 이미지 배열 작성
+    var png = [
+        'images/00.png', 'images/01.png', 'images/02.png', 'images/03.png', 'images/04.png', 'images/05.png',
+        'images/06.png', 'images/07.png', 'images/08.png', 'images/09.png', 'images/10.png', 'images/11.png',
+        'images/12.png', 'images/13.png', 'images/14.png'
+    ];
+
+    // 이벤트 핸들러(리스너) 작성: 찾고 설정
+    // 1. id='img' 를 찾는다.
+    // 2. 찾은 태그(객체)의 src 값을 바꾼다.
+
+    var img = document.getElementById('img'); // 찾기
+
+    // id='next'에 클릭 이벤트 설정.
+    var next = document.getElementById('next'); //찾기
+    next.onclick = function (event) {
+        // window.alert('next 클릭');
+        // 현재 그림의 번호 추출하기.
+        var sno = img.src.substr(img.src.length - 6, 2); // 00, 01, 02, ...
+        // 문자 sno를 숫자로 바꾼다. Number() 사용.
+        var ino = Number(sno); //문자 --> 숫자.
+
+        // 현재 이미지 번호가 00이면 01을 설정한다.
+        ino = ino + 1
+
+        // ino가 15이면 ino 값을 0으로 설정(대입)하시오.
+        if (ino == 15) {
+            ino = 0;
+        }
+
+        img.src = png[ino]; //현재 이미지가 00.png이면 01.png가 보이게 한다.
+    };
+
+    // id='prev''에 클릭 이벤트 설정.
+    var prev = document.getElementById('prev'); //찾기
+    prev.onclick = function (event) {
+        // window.alert('prev 클릭');
+
+        // 문자 sno를 숫자로 바꾼다. Number() 사용.
+        var sno = img.src.substr(img.src.length - 6, 2); // 00...
+        var ino = Number(sno);
+
+        // 현재 이미지 번호 ino를 -1 한다.
+        ino = ino - 1
+
+        // ino가 0이면 ino 값을 14으로 설정 (대입) 하시오.
+        if (ino == -1) {
+            ino = 14;
+        }
+
+        img.src = png[ino];
+
+    };
+
+    var start = document.getElementById('start'); //찾기
+    start.onclick = function (event) {
+        //window.alert('next 클릭');
+        timer = setInterval(function (event) {
+            // window.alert('next 클릭');
+            // 현재 그림의 번호 추출하기.
+            var sno = img.src.substr(img.src.length - 6, 2); // 00, 01, 02, ...
+            // 문자 sno를 숫자로 바꾼다. Number() 사용.
+            var ino = Number(sno); //문자 --> 숫자.
+
+            // 현재 이미지 번호가 00이면 01을 설정한다.
+            ino = ino + 1
+
+            // ino가 15이면 ino 값을 0으로 설정(대입)하시오.
+            if (ino == 15) {
+                ino = 0;
+            }
+
+            img.src = png[ino]; //현재 이미지가 00.png이면 01.png가 보이게 한다.
+        }, 100); // 100ms == 0.1s 마다
+    };
+
+    var stop = document.getElementById('stop'); //찾기
+    stop.onclick = function (event) {
+        //window.alert('next 클릭');
+        
+        clearInterval( timer /* timer 정보 */ )
+    };
+</script>
