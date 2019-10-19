@@ -18,3 +18,8 @@ html 태그가 실행되기 전에는 window.onload를 사용해야한다.
 
 style 속성 -> css ()
 class 속성 -> addClass()
+
+^ : 시작
+$ : 끝
+* : 모든
+~ : 
