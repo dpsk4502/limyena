@@ -6,6 +6,7 @@
         body { margin:10px; }
         div,span { background: #FFF; padding: 10px; margin: 10px; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h2>DOM Selector</h2>
@@ -50,4 +51,12 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('#children').on('click', function(event){
+        $('#siteUrl').css('border', '1px dotted blue');
+    });
+    
+    $('#descendant').on('click', function(event){
+        $('#siteUrl > li').css('border', '2px solid red');
+    });
+</script>

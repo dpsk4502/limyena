@@ -52,21 +52,57 @@
         // 찾고 설정(CRUD)
         // 1. p class="pclick" 찾고 텍스트 엘리먼트 읽기(R)
         var result = $('p.pclick').html();
+        window.alert(result);
         //window.alert(result);
         
         // 2. div id="result_element" 찾고 텍스트 엘리먼트 쓰기(c))
         $('#result_element').html( result );
     });
+
     $('#element_create').on('click', function(event){
         // <img src="images/im1.jpg">
-        $('#result_element').html('<img src="images/im1.jpg">');
-        
+        $('#result_element').html('<img src="images/im1.jpg">');   
     });
+
     $('#element_update').on('click', function(event){
-        
+        var update = $('p.pclick').html();
+        $('#result_element').html(update);
     });
+
     $('#element_delete').on('click', function(event){
-        
+        var delate = $('#result_element').html(''); // 텍스트 엘리먼트를 빈값으로 업데이트
+        // $('#result_element').remove(''); // 엘리먼트 삭제
+    });
+
+    $('.text_read').on('click',function(event){
+        var result = $('li.text_read').text(); //변수에 보관
+        window.alert(result);
+
+        var result = $('p.pclick').text(); //변수에 보관
+        window.alert(result);
+    });
+
+    $('.text_create').on('click',function(event){
+
+        //var aa = "abc";
+        //aa = aa + "def"; // => abc def
+        //console.log(aa); // => abc def
+
+        var result = $('li.text_create').text(); //변수에 보관
+        result = result + ' > 추가 '; // 변수에 추가하는 방법
+        $('.text_create').text(result); // 결과값 도출하는 법
+    });
+
+    $('.text_update').on('click',function(event){
+        var result = $('p.pclick').text(); // 읽어서 변수에 보관.
+
+        // 변수의 값을 찾은 태그의 자식으로 추가.
+        // $('.text_update').text(result);
+        $('.text_update').text(result);
+    });
+
+    $('.text_delete').on('click',function(event){
+        var result = $('.text_delete').text('');
     });
 </script>
 

@@ -14,6 +14,7 @@
         .white  { background: white;  }
         .gray   { background: gray;   }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -49,5 +50,78 @@
 </html>
 
 <!-- 임포트 -->
+<script>
+    $('#value_read').on('click', function(event){
+        // window.alert('text');
 
-
+        var result = $('#text').attr('value');
+        window.alert(result);
+    });
+
+    $('#value_create').on('click', function(event){
+        // window.alert('text');
+
+        var result = $('#text').attr('value');
+        result = result + ' > 추가 ';
+        $('#text').attr('value',result);
+    });
+
+    $('#value_update').on('click', function(event){
+        // window.alert('text');
+
+        var result = $('#value_update').html();
+        $('#text').attr('value', result);
+    });
+
+    $('#value_delete').on('click', function(event){
+        // window.alert('text');
+
+        $('#text').val('');
+    });
+
+
+    $('#prop_read').on('click', function(event){
+        //window.alert('text');
+        var result = $('input[type=checkbox]').attr('checked');
+        window.alert('attr :' + result); //=>checked
+
+        var result = $('input[type=checkbox]').prop('checked');
+        window.alert('prop :' + result); //=>true
+    });
+
+    $('#prop_create').on('click', function(event){
+        //window.alert('text');
+        $('input[type=radio]').attr('checked', 'checked');
+        var result = $('input[type=radio]').attr('checked');
+        window.alert('attr result : ' + result); //checked
+
+        $('input[type=radio]').prop('checked', 'checked');
+        var result = $('input[type=radio]').prop('checked');
+        window.alert('prop result : ' + result); //true
+
+    });
+
+    $('#prop_update').on('click', function(event){
+        //window.alert('text');
+
+        // <input type ='checkbox' checked toggle
+        // checked 이면 unchecked 로
+        // unchecked 이면 check 로
+
+        var result = $('input[type=checkbox]').prop('checked'); // ==> checked
+        if(result){
+            // checked 이면 unchecked <==> fales로 만든다.
+            $('input[type=checkbox]').prop('checked', false);
+        }
+        else {
+            // unchecked 이면 checked로 만든다.
+            $('input[type=checkbox]').prop('checked', true);
+        }
+    });
+
+    $('#prop_delete').on('click', function(event){
+        //window.alert('text');
+        $('input[name=ccc]').removeAttr('disabled');
+    });
+</script>
+

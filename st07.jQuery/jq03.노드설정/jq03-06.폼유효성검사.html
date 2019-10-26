@@ -7,6 +7,7 @@
         div { padding: 5px 5px 5px 5px }
         .item {float:left; width:100px; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
 <form name='fm'
@@ -40,5 +41,77 @@
 </html>
 
 <!-- 임포트 -->
+<script>
+    $('#regBtn').on('click', function(event){
 
-
+        // 아이디 유형성 검사
+        var result = $('#userId').val();
+
+        if (result == ''){
+            $('label[name="userId"]').html('아이디를 입력하세요.'); // 값이 없다면 문구를 나오게 하라.
+            //커서 깜빡이게 하기.
+            $('#userId').focus();
+            return false; // 이벤트를 취소한다.
+        }
+        else {
+            $('label[name="userId"]').html(''); //만약 값이 있다면 공백으로 처리하라.
+        }
+        
+        // 이름 유형성 검사
+        var result = $('#userName').val();
+
+        if (result == ''){
+            $('label[name="userName"]').html('비밀번호를 입력하세요.');
+            $('#userName').focus();
+            return false;
+        }
+        else {
+            $('label[name="userName"]').html('');
+        }
+        
+        // 패스워드 유형성 검사
+        var result = $('#pwd').val();
+
+        if (result == ''){
+            $('label[name="pwd"]').html('패스워드를 입력하세요.');
+            $('#pwd').focus();
+            return false;
+        }
+        else {
+            $('label[name="pwd"]').html('');
+        }
+
+        // 패스워드 확인 유형성 검사
+        var result = $('#pwdConfirm').val();
+
+        if (result == ''){
+            $('label[name="pwdConfirm"]').html('패스워드를 다시 입력하세요.');
+            $('#pwdConfirm').focus();
+            return false;
+        }
+        else {
+            $('label[name="pwdConfirm"]').html('');
+        }
+
+        // 패스워드와 패스워드 확인이 같은지 검사.
+        var pwd = $('#pwd').val();
+        var pwdConfirm = $('#pwdConfirm').val();
+
+        if (pwd == pwdConfirm) {
+        } 
+        else {
+            $('label[name="pwd"]').html('패스워드가 다릅니다.');
+            $('#pwd').focus();
+            return false;
+
+            // #pwd와 #pwdConfirm 입력값 지우기는 빈값 입력과 같다.
+            $('#pwd').val('');
+            $('#pwdConfirm').val('');
+        }
+        //.submit(); <==> <input type="submit" value="실행"
+        $('form[name="fm"]').submit(); 
+
+    });
+</script>
+
+

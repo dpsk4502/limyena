@@ -5,6 +5,7 @@
     <style>
         img { padding:5px; width:130px; height:130px; border:1px solid gray; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h2>&lt;img id="" src="" title="" alt="" /&gt;</h2>
@@ -22,4 +23,29 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('#img2').on('click', function(event){
+        // window.alert('text');
+        $('#img2').attr('src','images/im2.jpg');
+    });
+
+    $('#img3').on('click', function(event){
+        // window.alert('text');
+        $('#img3').attr('src','images/im3.jpg');
+    });
+
+    $('#img4').on('click', function(event){
+        // window.alert('text');
+        $('#img4').attr('src','images/im4.jpg');
+    });
+
+    $('#img5').on('click', function(event){
+        // window.alert('text');
+        $('#img5').attr('src','images/im5.jpg');
+    });
+
+    $('#img6').on('click', function(event){
+        $('#img6').removeAttr('src');
+    });
+</script>
+

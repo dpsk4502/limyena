@@ -9,6 +9,7 @@
         .after { background: pink }
         .selected {border: 4px blue solid !important; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <p>부모, 형제, 자식 노드</p>
@@ -59,4 +60,48 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('.parents').on('click', function(event){
+        $('#center').parents().css('border', '1px dotted black');
+    });
+    
+    $('.parent').on('click', function(event){
+        $('#center').parent().css('border', '1px dotted black');
+    });
+
+    $('.prevAll').on('click', function(event){
+        $('#center').prevAll().css('border', '1px solid blue');
+    });
+
+    // first 부모를 이용하여 찾아야한다.
+    $('.first').on('click', function(event){
+        $('#center').parent().children().first().css('border', '1px solid blue');
+    });
+
+    $('.prev').on('click', function(event){
+        $('#center').prev().css('border', '1px solid blue');
+    });
+
+    $('.nextAll').on('click', function(event){
+        $('#center').nextAll().css('border', '1px dashed green');
+    });
+
+    $('.next').on('click', function(event){
+        $('#center').next().css('border', '1px dashed green');
+
+    });
+
+    $('.last').on('click', function(event){
+        $('#center').parent().children().last().css('border', '1px dashed green');
+
+    });
+
+    $('.siblings').on('click', function(event){
+        $('#center').siblings().css('border', '1px dotted white');
+
+    });
+
+    $('.children').on('click', function(event){
+        $('#center').children('div#third').css('border', '1px solid pink');
+    });
+</script>

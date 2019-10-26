@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h1>jQuery 연습문제</h1>
@@ -39,4 +40,28 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('#btn1').on('click', function(event){
+        $('body').css('background-color', 'olive');
+    });
+
+    $('#btn2').on('click', function(event){
+        $('#p1').html('반갑습니다.');
+    });
+
+    $('#btn3').on('click', function(event){
+        $('#div1').html('');
+    });
+
+    $('#btn4').on('mouseover', function(event){
+        $('#btn4').css('background-color', 'black').css('color', 'white');
+    });
+    $('#btn4').on('mouseout', function(event){
+        $('#btn4').css('background-color', '').css('color', '')
+    });
+
+    $('a').on('click', function(event){
+        return false;
+        $('a[http://naver.com]').css('color', 'orange');
+    });
+</script>

@@ -11,8 +11,6 @@
         button  { cursor: pointer; }
         img     { padding:5px; width:130px; height:130px; border:1px solid gray; }
 
-        #style  {  border: 1px dotted green; }
-
         .gray   { background-color: #959FA9; height: 20px; margin-top: 10px; }
         .white  { background-color: white; }
         .red    { background-color: red !important;}
@@ -20,6 +18,7 @@
 
         .toggleStyle { background-color: red;   color:white;}
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -42,7 +41,7 @@
 
     <div>
         <h4>style 속성 CRUD</h4>
-        <span id="style" style="background-color: white;">엘리먼트에 style CRUD 하기</span>
+        <span id="style" style="background-color: white; border: 1px dotted green;">엘리먼트에 style CRUD 하기</span>
 
         <button id="style_read"  >style 읽기(R)</button>
         <button id="style_create">style 추가(C)</button>
@@ -77,5 +76,132 @@
 </html>
 
 <!-- 임포트 -->
+<script>
 
-
+    $('#attr_read').on('click', function(){
+        // window.alert('text');
+
+        // 태그 찾아서 src 속성 값 읽기.
+        var result = $('#img1').attr('src');
+
+        // src 속성 값을 쓸 태그를 찾기.
+        $('#result_attr').html(result);
+
+    });
+
+    $('#attr_create').on('click', function(){
+        // window.alert('text');
+        
+        // 태그 찾아서 src 속성 값을 추가.
+        var result = $('#img2').attr('src', 'images/im2.jpg');
+        $('#img2').html(result);
+    });
+
+    $('#attr_update').on('click', function(){
+        // window.alert('text');
+
+        var result = $('#img2').attr('src', 'images/im3.jpg');
+        $('#img2').html(result);
+    });
+
+    $('#attr_delete').on('click', function(){
+       // window.alert('text');
+
+       var result = $('#img2').removeAttr('src');
+        $('#img2').html(result);
+    });
+
+
+    // style 속성 crud
+    $('#style_read').on('click', function(event){
+        // window.alert('text');
+
+        var result = $('#style').css('border');
+        $('#result_style').html(result);
+    });
+
+    $('#style_create').on('click', function(event){
+        // window.alert('text');
+
+        $('#style').css('border', '2px solid blue');  //클릭 했을 때 설정효과 보여주기.
+
+        var result = $('#style').css('border'); //내가 지정한 설정 값의 내용을 담고 보여주기
+        $('#result_style').html(result);
+    });
+
+    $('#style_update').on('click', function(event){
+        // window.alert('text');
+
+        $('#style').css('border', '2px dashed blue');
+        var result = $('#style').css('border');
+
+        $('#result_style').html(result);
+    });
+
+    $('#style_delete').on('click', function(event){
+        // window.alert('text');
+        
+        $('#style').css('border', '');
+        var result = $('#style').css('border');
+
+        $('#result_style').html(result);
+    });
+
+    // class 속성 CRUD
+    $('#class_read').on('click', function(event){
+        // window.alert('text');
+
+        var result = $('#class').hasClass('white');
+        window.alert(result); //=> ture
+        var result = $('#class').attr('class');
+        window.alert(result); //=> white
+
+        var result = $('#class').attr('class');
+        $('#result_class').html(result);
+    });
+
+    $('#class_create').on('click', function(event){
+        // window.alert('text');
+        // <span id="class" class="white"> 수정전
+        // <span id="class" class="white red"> 수정후
+
+        $('#class').addClass('red'); //찾는 것 일때는 점을 쓰지만 속성값 부여일 때는 쓰지 않는다.
+        var result = $('#class').attr('class');
+        $('#result_class').html(result);
+
+    });
+
+    $('#class_update').on('click', function(event){
+        // window.alert('text');
+
+        // <span id="class" class="white"> 삭제 후
+        // <span id="class" class="white yellow">
+
+        $('#class').removeClass('red');
+        $('#class').addClass('yellow');
+        var result = $('#class').attr('class');
+        $('#result_class').html(result);
+    });
+
+    $('#class_delete_part').on('click', function(event){
+        // window.alert('text');
+
+        $('#class').removeClass('white');
+        var result = $('#class').attr('class');
+        $('#result_class').html(result);
+    });
+
+    $('#class_delete_all').on('click', function(event){
+        // window.alert('text');
+
+        $('#class').removeClass();
+        var result = $('#class').attr('class');
+        $('#result_class').html(result);
+    });
+
+    $('p.yellow').on('click', function(event){
+        $('p.yellow').toggleClass('red');
+    });
+</script>
+
+
