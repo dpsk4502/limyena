@@ -11,6 +11,7 @@
         #center p { margin: 10px; background: #b96dff; }
         .border { border: 2px dashed #ffb42e; margin: 5px; display:block; background: #b96dff; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <p>DOM 조작 메서드</p>
@@ -47,4 +48,64 @@
     </div>
 </body>
 </html>
-
+
+<!-- 임포트 -->
+<script>
+    // 시간 가져오는 함수 만들기.
+    var gettime = function(){
+        var result = '';
+        // javascript 날짜, 시간을 위한 객체는 Date
+        var date = new Date();
+        result = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+
+        return result
+    }
+
+    $('.html').on('click', function(event){
+        // html 태그를 그대로 삽입하면 그 안에 적용됨.
+        $('#center').html('<div style="border:5px solid blue">결혼은 늦게...</div>');
+    });
+    $('.prepend').on('click', function(event){
+        // 시간 가져오기
+        var time = gettime();
+
+        // 첫번째 자식(중요)으로 추가.
+        var str = '<p> prepend ' + time + '</p>';
+        $('#center').prepend(str);
+    });
+    $('.append').on('click', function(event){
+        var time = gettime();
+        
+        // 마지막 자식(중요)으로 추가.
+        // var str = '<p> append ' + time + '</p>';
+        // $('#center').append(str);
+
+        var str = 'append' + time ;
+        $('#center').append('<p/>')
+                    .find('p:last')
+                    .html(str)
+                    .css('border, 2px dashed green');
+    });
+    $('.before').on('click', function(event){
+        $('#center').before('<div>zz</div>');
+    });
+    $('.after').on('click', function(event){
+        $('#center').after('<div>zz</div>');
+    });
+
+    $('.wrap').on('click', function(event){
+
+    });
+    $('.replacewith').on('click', function(event){
+
+    });
+    $('.clone').on('click', function(event){
+
+    });
+    $('.empty').on('click', function(event){
+
+    });
+    $('.remove').on('click', function(event){
+
+    });
+</script>

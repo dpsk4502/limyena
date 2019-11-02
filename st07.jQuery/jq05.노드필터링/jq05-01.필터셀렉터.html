@@ -7,6 +7,7 @@
         table { border: 1px solid #AAA; width:98%; }
         td    { border: 1px solid #AAA; width: 20px; height: 20px; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
     <h2>Filter Selector</h2>
@@ -51,4 +52,78 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    $('#eq').on('click', function(event){
+        //window.alert('text');
+        $('td'); // ==> td 40개를 먼저 찾는다.
+        $('td:eq(7)') // ==> td 40개를 먼저 찾고 찾은 40개 중에서 7번 요소를 선택한다.
+        $('td:eq(7)').css('background-color', '#ff0000');
+    });
+    $('#gt').on('click', function(event){
+        //window.alert('text');
+        // $('td:gt(2)').css('background-color', '#ffff00');
+        $('tr:eq(1) > td:gt(2)').css('background-color', '#ffff00');
+    });
+    $('#lt').on('click', function(event){
+        //window.alert('text');
+        $('tr:eq(1) > td:lt(2)').css('background-color', '#ffff00');
+    });
+    $('#odd').on('click', function(event){
+        //window.alert('text');
+        $('tr:eq(2) > td:odd').css('background-color', 'green');
+    });
+    $('#even').on('click', function(event){
+        //window.alert('text');
+        $('tr:eq(2) > td:even').css('background-color', 'green');
+    });
+    $('#first').on('click', function(event){
+        //window.alert('text');
+        $('tr:eq(3) > td:first').css('background-color', 'blue');
+        $('tr:eq(3) > td:eq(0)').css('background-color', 'blue');
+    });
+    $('#last').on('click', function(event){
+        //window.alert('text');
+        $('tr:eq(3) > td:last').css('background-color', 'blue');
+    });
+
+
+    $('#ex1').on('click', function(event){
+        $('tr:even').css('background', 'red');
+    });
+
+    $('#ex2').on('click', function(event){
+        $('td:odd').css('background', 'yellow');
+    });
+
+    $('#ex3').on('click', function(event){
+        $('tr:even td:odd').css('background', 'pink');
+    });
+
+    $('#ex4').on('click', function(event){
+        $('td:nth-child(3n+1)').css('background', 'green');
+    });
+
+    $('#ex5').on('click', function(event){
+        $('td:nth-child(1)').css('background', 'blue');
+    });
+
+    $('#ex6').on('click', function(event){
+        $('td:nth-child(1)').css('background', 'red');
+        $('td:nth-child(10)').css('background', 'yellow');
+    });
+
+    $('#ex7').on('click', function(event){
+        $('td:nth-child(3)').css('background', 'orange');
+    });
+
+    $('#ex8').on('click', function(event){
+        $('td:nth-child(1)').css('background', 'red');
+        $('td:nth-child(10)').css('background', 'yellow');
+        $('tr:eq(2) > td:eq(4)').css('background', 'yellow');
+        $('tr:eq(2) > td:eq(4)').attr('colspan', '6');
+        $('tr:eq(2) > td:gt(4)').css('background', 'red');
+        $('tr:eq(2) > td:gt(4)').remove();
+    });
+    
+</script>
+

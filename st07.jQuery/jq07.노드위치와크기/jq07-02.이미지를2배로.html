@@ -6,12 +6,28 @@
     <style>
         img{  width: 140px; height: 120px; }
     </style>
-    <!-- 임포트 -->
-    
-    
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
    <img src="images/im1.jpg" />
 </body>
 </html>
-
+
+<!-- 임포트 -->
+<script>
+    // click 이벤트 설정
+    $('img').on('click', function(event){
+       // 클릭된 이미지 (==this)의 width, height 읽기
+       var width = $(this).width(); //contents의 width만. padding, border, margin 의 width 제외
+       var height = $(this).height(); //contents의 height만.
+
+       // 이미지의 width를 2배로...
+       imgwidth = width * 2;
+       // 이미지의 height를 2배로...
+       imgheight = height * 2;
+
+       //img의 width와 height를 설정(쓰기)한다.
+       $(this).width(imgwidth)
+                .height(imgheight);
+    });
+</script>

@@ -19,6 +19,8 @@
 
         .yellow { background-color: yellow; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
+    <script src="../jquery.easing.1.3.js"></script> <!-- 순서가 중요하다. 순서 바꾸면 안됌. -->
 </head>
 <body>
     <h2>show & hide 효과</h2>
@@ -114,6 +116,94 @@
 </body>
 </html>
 
+<!-- 임포트 -->
+<script>
+    $('span.showhide:eq(0)').on('click', function(event){
+        //window.alert('text');
+        $('p.showhide').show(); //=> display:block;
+    });
+    $('span.showhide:eq(1)').on('click', function(event){
+        //window.alert('text');
+        $('p.showhide').hide(); //=> display:none;
+                                //=> $('p.showhide').css('display', 'none');
+    });
+    $('span.showhide:eq(2)').on('click', function(event){
+        //window.alert('text');
+        $('p.showhide').toggle();
+    });
 
 
-
+    $('span.slide:eq(0)').on('click', function(event){
+        //window.alert('text^^');
+        $('div.slide').slideUp(3000);
+    });
+    $('span.slide:eq(1)').on('click', function(event){
+        //window.alert('text^^');
+        $('div.slide').slideDown(3000);
+    });
+    $('span.slide:eq(2)').on('click', function(event){
+        //window.alert('text^^');
+        $('div.slide').slideToggle(3000);
+    });
+
+
+    $('span.fade:eq(0)').on('click', function(event){
+        $('p.fade').fadeIn(2000);
+    });
+    $('span.fade:eq(1)').on('click', function(event){
+        $('p.fade').fadeOut(2000);
+    });
+    $('span.fade:eq(2)').on('click', function(event){
+        $('p.fade').fadeToggle(2000);
+    });
+    $('span.fade:eq(3)').on('click', function(event){
+        /* 
+            opacity 값이 0.2와 같다면 opacity(투명도):0 으로 설정
+            opacity 값이 0.2와 같지 않다면 opacity(투명도):0.2 로 설정
+
+        */
+        var opacity = $('p.fade').css('opacity');
+        
+        // opacity 값이 0.2와 같다면
+        // display:none;
+        if (opacity == 0.2) {
+            $('p.fade').fadeOut(2000) //2초동안 fadeOut하기
+                        .delay(2000)  // 2초 기다리기
+                        .hide(); // 감추기
+            // $('p.fade').hide();
+        } 
+        else {
+            $('p.fade').fadeTo(2000,0.2); // fadeIn() == fadeTo()
+        }
+
+        $('p.fade').fadeTo(2000, 0.2); // opacity(투명도) : 0 ~ 1
+    });
+
+
+    $('span.easing:eq(0)').on('click', function(event){
+        // window.alert('text');
+        var effect = $('select > option:selected').html();
+        $('p.easing').show(2000, effect, function(params){
+            $(this).addClass('yellow');
+        });
+    });
+    $('span.easing:eq(1)').on('click', function(event){
+        // window.alert('text');
+        var effect = $('select > option:selected').html();
+        $('p.easing').hide(2000, effect, function(event){
+            $('p.easing').removeClass('yellow');
+        });
+    });
+    //쓰기는 속성 값을 바꾸는 것이고 읽기는 설정을 불러오는 것이다.
+    $('span.easing:eq(2)').on('click', function(event){
+        // window.alert('text');
+        var easing = $('p.easing').css('display');
+        if (easing == "none") {
+            $('p.easing').show(2000);
+        } else {
+            $('p.easing').hide(2000);
+        }
+    });
+</script>
+
+

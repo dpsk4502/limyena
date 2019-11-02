@@ -10,7 +10,9 @@
 	    .odd{ background: rgba(51, 69, 205, 0.27); }
 	    .even{ background:#F2F2F2; }
 	    .hover{ background:#B2D8FF; }
-	</style>
+        /* tbody > tr:hover {background:#ddd;} */
+    </style>
+    <script src="../jquery-3.4.1.js"></script>
 </head>
 <body>
 
@@ -52,4 +54,39 @@
 </html>
 
 <!-- 임포트 -->
-
+<script>
+    // tbody > 짝수 tr이면 <tr> ==> <tr class="even">
+    $('tbody > tr:even').addClass('even');
+    // tbody > 홀수 tr이면 <tr> ==> <tr class="odd">
+    $('tbody > tr:odd').addClass('odd');
+
+    // tbody > tr:hover {background:#ddd;}
+    // :hover -> mouseover, mouseout 으로 변경해야 구현이 가능하다.
+    $('tbody > tr').on('mouseover', function(event){
+        //설정
+        //this 현재 실행되고 있는 태그. 실행중인 th을 의미한다.
+        $(this).addClass('hover');
+    });
+    $('tbody > tr').on('mouseout', function(event){
+        $(this).removeClass('hover');
+    });
+
+    // 수직 스트라이프
+    $('tbody > tr > td').on('mouseover', function(event){
+        // 수직 스트라이프 설정
+        // 현재 마우스가 있는 컬럼의 인덱스(번호) 가져오기.
+        var colIndex = $(this).index() + 1; // 왜냐하면 시작이 0부터 이기 때문에.
+        var str = 'td:nth-child(' + colIndex + ')';
+        console.log( str );
+        $(str).addClass('hover');
+
+    });
+
+    $('tbody > tr > td').on('mouseout', function(event){
+        var colIndex = $(this).index() + 1; // 왜냐하면 시작이 0부터 이기 때문에.
+        var str = 'td:nth-child(' + colIndex + ')';
+        console.log( str );
+        $(str).removeClass('hover');
+    });
+</script>
+
