@@ -8,6 +8,8 @@
 
         hr { clear:both; }
     </style>
+    <script src="../jquery-3.4.1.js"></script>
+    <script src="../jquery.easing.1.3.js"></script>
 </head>
 <body>
     <div>
@@ -37,5 +39,19 @@
 </body>
 </html>
 
+<script>
+// 읽기는 반드시 변수에 저장한다. (안하는 경우도 있음;)
 
-
+    $('#menu1').on('click', function(event){
+        // window.alert('text');
+        // load.html 파일읽기 : .load('')
+        $('#message1').load('item.html');
+    });
+
+    $('#menu2').on('click', function(event){
+        // window.alert('text');
+        $('#message2').load('item.html > ul');
+    });
+
+    $
+</script>

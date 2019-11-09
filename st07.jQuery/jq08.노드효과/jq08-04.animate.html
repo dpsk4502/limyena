@@ -19,9 +19,9 @@
             height:90px;
             margin:5px;
         }
-        
-
     </style>
+    <script src="../jquery-3.4.1.js"></script>
+    <script src="../jquery.easing.1.3.js"></script>
 </head>
 <body>
     <div style="width:500px; float:left;">
@@ -70,7 +70,7 @@
         </div>
         
         <hr>
-
+        
         <h2>사용자 효과 : animate</h2>
         <div id="animate">
             <button class="leftbtn">&laquo;</button>
@@ -99,3 +99,43 @@
 </body>
 </html>
 
+<script>
+// margin-left(==x축), margin-top(== y축)을 이용한 위치 이동
+// left(==x축), top(==y축)을 이용한 위치 이동
+
+
+    $('.leftbtn').on('click', function(event){
+        // easing 효과
+        var effect = $('option:selected').html();
+
+        //window.alert('text');
+        $('#leftimage').animate( {width:'0px'}, 1000, effect);
+        $('#rightimage').animate( {width:'200px'}, 1000, effect);
+    });
+    $('.rightbtn').on('click', function(event){
+        var effect = $('option:selected').html();
+        //window.alert('text');
+        $('#rightimage').animate( {width:'0px'}, 1000, effect);
+        $('#leftimage').animate( {width:'200px'}, 1000, effect);
+
+    });
+
+    $('#left').on('click', function(event){
+        //window.alert('text');
+        // left 속성 사용 - 값. ==> left: -50px;
+        var left = $('div.block').css('left'); // '100px'
+        left = left.replace('px',''); // '100'
+        left = Number(left); // 100
+        left = left - 50; // 50
+        // $('div.block').animate({'left':left+'px'}, 1000, 'swing');
+
+        // x = x -50 ==> x -= 50
+        // animate에는 스타일 속성이 온다.
+        $('div.block').animate({'left':'-=50px'}, 1000, 'swing');
+    });
+    $('#right').on('click', function(event){
+        //window.alert('text');
+        // left 속성 사용 + 값. ==> left: +50px;
+        $('div.block').animate({'left':'+=50px'}, 1000, 'swing');
+    });
+</script>
