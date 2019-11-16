@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/jquery.bxslider.css">
+    <style>
+        /* #wrap_slider {width:210px; height:325px; overflow:hidden;} */
+    </style>
+</head>
+<body>
+    <div id="wrap_slider">
+        <img src="./images/01.png" alt="">
+        <img src="./images/04.png" alt="">
+        <img src="./images/07.png" alt="">
+        <img src="./images/10.png" alt="">
+        <img src="./images/13.png" alt="">
+    </div>
+</body>
+</html>
+
+<!-- 임포트 -->
+<script src="../../jquery-3.4.1.js"></script>
+<script src="./js/jquery.bxslider.js"></script>
+
+<script>
+    $('#wrap_slider').bxSlider({
+        'auto' : true,
+        'slideWidth' : '200px',
+    });
+</script>

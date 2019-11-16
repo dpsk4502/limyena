@@ -2,12 +2,13 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="view-port" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mobile Project</title>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/app_icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="images/app_icon.png" />
 
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="./css/lightbox.min.css">
+
 </head>
 <body>
 
@@ -21,6 +22,11 @@
                 <span class="m_tit bold">프로젝트 리스트</span>
                 <ul class="pro_list">
                     <li>
+                        <!-- 
+                            <a class="light" href="images/image1.jpg">
+                                <img src="images/image1.jpg" width="62">
+                            </a> 
+                        -->
                         <a href="images/st02_01.jpg">
                             <img src="images/st02_01_thumb.jpg" />
                             <span>Sample01</span>
@@ -96,17 +102,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
-    <div id="blueimp-gallery" class="blueimp-gallery">
-        <div class="slides"></div>
-        <h3 class="title"></h3>
-        <a class="prev">&lt;</a>
-        <a class="next">&gt;</a>
-        <a class="close">×</a>
-        <a class="play-pause"></a>
-        <ol class="indicator"></ol>
-    </div>
 
 </section>
 
@@ -115,11 +110,10 @@
 </body>
 </html>
 
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/lightbox-plus-jquery.js"></script>
+<script>
+    $('ul.pro_list a').lightBox();
+</script>
 
-
-
-
-<link rel="stylesheet" href="css/blueimp-gallery.min.css">
-
-
-

@@ -39,4 +39,13 @@
             <li><a href="company3.html" category="company">LOCATION</a></li>
         </ul>
     </nav>
-</header>
+</header>
+
+<script>
+    // 동적 이벤트 핸들러 설정.
+    // 페이지가 load 된 후에 추가 된 엘리먼트에 이벤트를 설정 하기 위해서.
+    $('#btn1').on('click', function(event){
+        // window.alert('text');
+        $('#content').toggle();
+    });
+</script>

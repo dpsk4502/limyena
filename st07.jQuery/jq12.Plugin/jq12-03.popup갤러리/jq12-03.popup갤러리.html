@@ -3,14 +3,25 @@
 <head>
     <title>LightBox</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/jquery.lightbox-0.5.css">
 </head>
 <body>
-    <h3>연습용 이미지</h3>
+    <h3>lightbox 플러그인용 이미지 갤러리</h3>
+    <pre>
+        lightbox 플러그인 사용하려면
+        jquery.lightbox-0.5.css
+        jquery.lightbox-0.5.js
+    </pre>
     <a class="light" href="images/image1.jpg"><img src="images/image1.jpg" width="62"></a>
     <a class="light" href="images/image2.jpg"><img src="images/image2.jpg" width="62"></a>
     <a class="light" href="images/image3.jpg"><img src="images/image3.jpg" width="62"></a>
     <hr>
-    <h3>실습용 이미지</h3>
+    <h3>blueimp 플로그인용 이미지 갤러리</h3>
+    <pre>
+        blueimp 플러그인 사용하려면
+        blueimp-gallery.min.css
+        blueimp-gallery.min.js
+        </pre>
     <div id="practice">
         <a class="practice" href="images/image1.jpg"><img src="images/image1.jpg" width="62"></a>
         <a class="practice" href="images/image2.jpg"><img src="images/image2.jpg" width="62"></a>
@@ -32,7 +43,7 @@
     <pre>
 1. jquery 플러그인 추가 순서. 순서를 바꾸면 안됨.
     1-1. jquery. 임포트
-    1-2. jquery 플러그 임포트
+    1-2. jquery 플러그인 임포트
 
 2. 자신만의 이미지 플러그인 추가하기
    2-1. http://plugins.jquery.com/ 에서 사용할 이미지 플러그인 다운로드 받아
@@ -41,3 +52,44 @@
     </pre>
 </body>
 </html>
+
+<!-- 임포트 -->
+<script src="../../jquery-3.4.1.js"></script>
+<!-- lightbox jquery 플러그인 임포트 -->
+<script src="./js/jquery.lightbox-0.5.js"></script>
+<!-- lightbox 플러그인 임포트 -->
+<link rel="stylesheet" href="./css/jquery.lightbox-0.5.css">
+
+<script>
+    $('a.light').lightBox();
+</script>
+
+<script src="./js/blueimp-gallery.min.js"></script>
+<link rel="stylesheet" href="./css/blueimp-gallery.min.css">
+<script>
+    $('#practice').on('click', function(event){
+        // window.alert('text');
+        // event.target : 이벤트를 발생시킨 태그를 의미.
+        var target = event.tatget || event.srcElement; // 이벤트를 발생시킨
+        // target.src ==> <img src=""> img 의 src 속성을 의미한다.
+        var index = null;
+        // target.src 값이 있으면
+        if (target.src) {
+            index = target.parentNode; // <a class="practive">를 의미
+        } else {
+            index = target; // <a class="practive">를 의미
+        }
+
+        // blueimp 갤러리 실행 옵션 설정
+        var options = {
+            'index' : index, // 'index' 문자열, index 변수
+            'event' : event, // 'event' 문자열, event 변수
+        };
+
+        // blueimg 갤러리 플러그인 매서드 호출.
+        // 인자가 두개 필요.
+        // 첫번째 인자 : 대상 => <a class="practice"
+        // 두번쨰 인자 : 옵션
+        blueimp.Gallery( $('a.practice') , options);
+    });
+</script>

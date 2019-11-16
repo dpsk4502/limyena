@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var f = function(params) {
+        console.log(params);
+    }
+    f('foo'); //함수호출 ==> 함수가 실행된다.
+
+    f('goo');
+
+    // 즉시함수 ==> 함수를 정의함과 동시에 호출. 재호출불가.
+    // 즉시함수 구조 : ( /* function(params){} */  )( /* 인자 */ );
+    // 왜 즉시함수를 사용하는가? 재호출이 되어서는 안되는 경우. 1회용.
+    (function(params) {
+        console.log(params);
+    })('koo');
+</script>

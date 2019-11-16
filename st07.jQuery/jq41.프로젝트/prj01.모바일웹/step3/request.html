@@ -88,5 +88,35 @@
 </body>
 </html>
 
+<script src="./js/jquery-3.3.1.js"></script>
+<script src="./js/common.js"></script>
 
-
+<script>
+    $('.btn_send').on('click', function(event){
+        var list = $('.req_input, .req_long');
+
+        for(var i=0; i<list.length; i=i+1){
+            if( $(list[i] ).val() == '' ) { //입력 필요.
+                list[i].focus(); //커서 깜빡이게
+
+                // label 태그 만들기. 있을 수도 있다.
+                if( $(list[i]).next('label').length == 0 ){
+                    // label 태그를 찾았는데 없는 경우.
+                    $(list[i]).after('<label>입력하세요</label>');
+                }
+                else {
+                }
+
+                // 이벤트 취소
+                return false;
+            }
+        }
+        $('#frm_request').submit();
+    });
+
+    // input 나 textarea 태그에서 key up 이벤트 발생할때 label 태그 삭제
+    $('.req_input, .req_long').on('keyup', function(event){
+        //클릭된 자기자신의 바로 밑에 동생을 찾는다.
+        $(this).next().remove();
+    })
+</script>
